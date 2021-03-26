@@ -70,5 +70,27 @@ namespace BankTests
 
             Assert.Fail("The expected exception was not thrown");
         }
+
+        [TestMethod]
+        public void Credit_WhenAmountIsLessThanZero()
+        {
+            // Arrange
+            double beggingBalance = 11.99;
+            double creditAmount = -10;
+            BankAccount account = new BankAccount("yo", beggingBalance);
+
+            try
+            {
+                // Act
+                account.Credit(creditAmount);
+            }
+            catch (System.Exception e)
+            {
+                StringAssert.Contains(e.Message, BankAccount.CreditAmountLessThanZeroMessage);
+                return;
+            }
+
+            Assert.Fail("The expected exception was not thrown");
+        }
     }
 }
