@@ -58,6 +58,7 @@ namespace BankAcountNS
         {
             if (amount < 0)
             {
+                // voy a agregar algunos comentarios
                 throw new ArgumentOutOfRangeException("amount", amount, CreditAmountLessThanZeroMessage);
             }
 
